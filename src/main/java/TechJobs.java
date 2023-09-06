@@ -121,31 +121,35 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         // System.out.println("printJobs is not implemented yet");
-        // System.out.println(someJobs);
-        if (someJobs.isEmpty()) {
-            System.out.println("No results");
-        } else {
-            System.out.println("*****");
-            for(HashMap<String, String> jobInfo : someJobs) {
-                String jobName = "";
-                String jobType = "";
-                String employer = "";
-                String location = "";
-                String coreComp = "";
-                for (int i = 0; i < jobInfo.size(); i++) {
-                    jobType = jobInfo.get("position type");
-                    jobName = jobInfo.get("name");
-                    employer = jobInfo.get("employer");
-                    location = jobInfo.get("location");
-                    coreComp = jobInfo.get("core competency").toString();
-                }
-                System.out.println("position type: " + jobType);
-                System.out.println("name: " + jobName);
-                System.out.println("employer: " + employer);
-                System.out.println("location: " + location);
-                System.out.println("core competency: " + coreComp);
+        try {
+            if (someJobs.isEmpty()) {
+                System.out.println("No results");
+            } else {
                 System.out.println("*****");
+                for(HashMap<String, String> jobInfo : someJobs) {
+                    String jobName = "";
+                    String jobType = "";
+                    String employer = "";
+                    String location = "";
+                    String coreComp = "";
+                    for (int i = 0; i < jobInfo.size(); i++) {
+                        jobType = jobInfo.get("position type");
+                        jobName = jobInfo.get("name");
+                        employer = jobInfo.get("employer");
+                        location = jobInfo.get("location");
+                        coreComp = jobInfo.get("core competency");
+                    }
+                    System.out.println("position type: " + jobType);
+                    System.out.println("name: " + jobName);
+                    System.out.println("employer: " + employer);
+                    System.out.println("location: " + location);
+                    System.out.println("core competency: " + coreComp);
+                    System.out.println("*****");
+                }
             }
+        }
+        catch (Exception e){
+            System.out.println("Error: Cannot produce results...");
         }
     }
 }

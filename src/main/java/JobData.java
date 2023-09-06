@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -95,7 +94,24 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> results = new ArrayList<>();
+//        HashMap<String, String> listing = new HashMap<>();
+        for (HashMap<String, String> jobListing : allJobs){
+            if (jobListing.containsValue(value)) {
+//                listing.put(String.valueOf(i), job.toString());
+//                results.add(listing);
+                String[] jobKeys = jobListing.keySet().toArray(new String[0]);
+                HashMap<String, String> job = new HashMap<>();
+
+                for (String key : jobKeys) {
+                    job.put(key, jobListing.get(key));
+                }
+                results.add(job);
+            }
+        }
+
+        return results;
+
     }
 
     /**
