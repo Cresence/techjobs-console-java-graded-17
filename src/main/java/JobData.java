@@ -74,7 +74,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if ((aValue.toLowerCase()).contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -97,9 +97,16 @@ public class JobData {
         ArrayList<HashMap<String, String>> results = new ArrayList<>();
 
         for (HashMap<String, String> jobListing : allJobs){
-//            String[] jobKeys = jobListing.keySet().toArray(new String[0]);
             for (String jobKeys : jobListing.keySet()){
-                if (jobListing.get(jobKeys).contains(value)) {
+                // Job listings fields are now lower-case
+                String newKey = jobListing.get(jobKeys);
+                newKey = newKey.toLowerCase();
+                // Input are now lower-case
+                String newVal = value.toLowerCase();
+
+//                System.out.println("Key/Value: " + newKey);
+//                System.out.println("Input: " + newVal);
+                if (newKey.contains(newVal)) {
                     results.add(jobListing);
                 }
             }
