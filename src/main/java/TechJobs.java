@@ -121,9 +121,8 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         try {
-            if (someJobs.isEmpty()) {
-                System.out.println("No results");
-            } else {
+            if (someJobs.isEmpty()) System.out.print("No Results");
+            else {
                 for(HashMap<String, String> jobInfo : someJobs) {
                     String jobName = "";
                     String jobType = "";
