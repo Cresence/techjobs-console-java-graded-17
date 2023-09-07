@@ -97,15 +97,10 @@ public class JobData {
         ArrayList<HashMap<String, String>> results = new ArrayList<>();
 
         for (HashMap<String, String> jobListing : allJobs){
-            if (jobListing.containsValue(value)) {
-                String[] jobKeys = jobListing.keySet().toArray(new String[0]);
-                HashMap<String, String> job = new HashMap<>();
-
-                for (String key : jobKeys) {
-                    job.put(key, jobListing.get(key));
-                }
-                if (!results.contains(job)) {
-                    results.add(job);
+//            String[] jobKeys = jobListing.keySet().toArray(new String[0]);
+            for (String jobKeys : jobListing.keySet()){
+                if (jobListing.get(jobKeys).contains(value)) {
+                    results.add(jobListing);
                 }
             }
         }
